@@ -59,11 +59,10 @@ export const UserSelector: React.FC<Props> = ({
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
         <div className="dropdown-content">
           {users.map(user => (
-            <button
+            <a
               key={user.id}
-              type="button"
-              onClick={e => {
-                e.preventDefault();
+              href={`#user-${user.id}`}
+              onClick={() => {
                 onChange(user);
               }}
               className={classNames('dropdown-item', {
@@ -71,7 +70,7 @@ export const UserSelector: React.FC<Props> = ({
               })}
             >
               {user.name}
-            </button>
+            </a>
           ))}
         </div>
       </div>
